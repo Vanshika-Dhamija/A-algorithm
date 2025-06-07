@@ -21,7 +21,7 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("A* Pathfinding with ghost and food")
 
-# Load images for start (Pac-Man) and goal (Trophy)
+# Loading images for start and goal
 character_img = pygame.image.load("ghost.jpg")
 destination_img = pygame.image.load("fruit.jpg")
 character_img = pygame.transform.scale(character_img, (CELL_SIZE, CELL_SIZE))
@@ -147,17 +147,17 @@ def astar(maze, start, goal):
     return None  # No path found
 
 
-# Create an empty maze
+# an empty maze
 maze = [[Cell(x, y) for y in range(ROWS)] for x in range(COLS)]
 
 # Generate random walls using DFS
 generate_maze(maze)
 
-# Define start and goal positions
+# start and goal positions
 start = maze[0][0]
 goal = maze[ROWS - 1][COLS - 1]
 
-# Run A* algorithm
+# A* algorithm
 path = astar(maze, start, goal)
 
 # Pygame loop to visualize the maze and path
@@ -165,7 +165,7 @@ running = True
 while running:
     screen.fill(WHITE)
 
-    # Draw maze walls
+    # maze walls
     for row in maze:
         for cell in row:
             x, y = cell.x * CELL_SIZE, cell.y * CELL_SIZE
@@ -179,14 +179,13 @@ while running:
             if cell.walls["left"]:
                 pygame.draw.line(screen, BLACK, (x, y), (x, y + CELL_SIZE), 2)
 
-    # Draw path with transparency
+    # path with transparency
     if path:
         for cell in path:
             pygame.draw.rect(
                 screen, BLUE, (cell.x * CELL_SIZE + 2, cell.y * CELL_SIZE + 2, CELL_SIZE - 4, CELL_SIZE - 4), 0
             )
 
-    # Draw start (Pac-Man) and goal (Trophy)
     screen.blit(character_img, (start.x * CELL_SIZE, start.y * CELL_SIZE))
     screen.blit(destination_img, (goal.x * CELL_SIZE, goal.y * CELL_SIZE))
 
