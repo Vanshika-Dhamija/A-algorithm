@@ -1,4 +1,4 @@
-# A-algorithm
+# A star-algorithm
 A* Pathfinding Maze Game
 
 This is a Python project that visualizes the A* pathfinding algorithm inside a randomly generated maze. The goal is to find the shortest path from a ghost (start point) to a fruit (end point) using A* logic. The maze is generated using depth-first search (DFS), and the entire game is displayed using Pygame.
