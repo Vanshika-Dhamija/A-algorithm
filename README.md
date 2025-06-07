@@ -37,11 +37,3 @@ How It Works:
 - The shortest path is shown in light blue.
 - Maze walls remain visible even when the path is shown.
 
-
-File Structure:
-
-project-folder/
-├── A star algorithm.py
-├── ghost.jpg
-└── fruit.jpg
-
